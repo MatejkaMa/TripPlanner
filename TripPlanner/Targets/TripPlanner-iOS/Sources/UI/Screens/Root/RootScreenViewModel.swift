@@ -1,6 +1,7 @@
 import Combine
 import SwiftUI
-import TUIService
+import TUIAPIKit
+import TUIAlgorithmKit
 
 protocol RootScreenViewModelProtocol: ObservableObject {
 

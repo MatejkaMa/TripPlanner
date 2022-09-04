@@ -1,12 +1,12 @@
 import Foundation
 
-class Path {
+public class Path {
     public let cumulativeWeight: Int
     public let node: Node
     public let previousPath: Path?
     private let connection: Connection?
 
-    init(to node: Node, via connection: Connection? = nil, previousPath path: Path? = nil) {
+    public init(to node: Node, via connection: Connection? = nil, previousPath path: Path? = nil) {
         if
             let previousPath = path,
             let viaConnection = connection {
@@ -21,7 +21,7 @@ class Path {
 }
 
 extension Path {
-    var array: [Node] {
+    public var array: [Node] {
         var array: [Node] = [self.node]
 
         var iterativePath = self
@@ -33,7 +33,7 @@ extension Path {
         return array
     }
 
-    var connections: [Connection] {
+    public var connections: [Connection] {
         var array: [Connection?] = [connection]
 
         var iterativePath = self

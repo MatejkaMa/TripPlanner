@@ -1,6 +1,6 @@
 import Foundation
 
-class Connection {
+public class Connection {
     public let to: Node
     public let weight: Int
 

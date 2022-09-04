@@ -1,12 +1,12 @@
 import Foundation
 
-class Graph<Item: Identifiable & Hashable> where Item.ID == Int {
+public class Graph<Item: Identifiable & Hashable> where Item.ID == Int {
 
-    typealias Connections = [Item: [(to: Item, weight: Int)]]
+    public typealias Connections = [Item: [(to: Item, weight: Int)]]
 
-    let nodes: [Node]
+    public let nodes: [Node]
 
-    init(connections: Connections) {
+    public init(connections: Connections) {
         let nodes = Set(
             connections.flatMap { from, connections in
                 [from] + connections.map { $0.to }
@@ -24,11 +24,11 @@ class Graph<Item: Identifiable & Hashable> where Item.ID == Int {
         self.nodes = nodes
     }
 
-    func node(for item: Item) -> Node {
+    public func node(for item: Item) -> Node {
         Self.node(for: item, in: nodes)
     }
 
-    static func node(for item: Item, in nodes: [Node]) -> Node {
+    private static func node(for item: Item, in nodes: [Node]) -> Node {
         nodes.first(where: { $0.id == item.id }) ?? Node(id: item.id)
     }
 
@@ -38,7 +38,7 @@ extension Graph {
 
     // NOTE: Inspired https://www.fivestars.blog/articles/dijkstra-algorithm-swift/
     /// Used Dijkstra’s algorithm
-    func shortestPath(from fromItem: Item, to toItem: Item) -> Path? {
+    public func shortestPath(from fromItem: Item, to toItem: Item) -> Path? {
 
         let source = node(for: fromItem)
         let destination = node(for: toItem)

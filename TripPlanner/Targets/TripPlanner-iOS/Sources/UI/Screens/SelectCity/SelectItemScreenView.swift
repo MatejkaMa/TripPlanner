@@ -1,5 +1,5 @@
 import SwiftUI
-import TUIService
+import TUIAPIKit
 
 struct SelectItemScreenView<Item: ListItem>: View {
 

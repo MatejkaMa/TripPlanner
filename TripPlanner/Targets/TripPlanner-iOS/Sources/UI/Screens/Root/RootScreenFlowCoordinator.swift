@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-import TUIService
+import TUIAPIKit
 
 protocol RootScreenFlowStateProtocol: ObservableObject {
     var route: RootScreenRoute? { get set }

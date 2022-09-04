@@ -1,6 +1,6 @@
 import MapKit
 import SwiftUI
-import TUIService
+import TUIAPIKit
 
 struct FlightConnectionMapView: View {
 

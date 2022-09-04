@@ -17,11 +17,6 @@
 		A65EBCB228BE163C005F5293 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EBCAE28BE163C005F5293 /* RequestState.swift */; };
 		A65EBCB328BE163C005F5293 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EBCB028BE163C005F5293 /* Publisher+.swift */; };
 		A65EBCB428BE163C005F5293 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EBCB128BE163C005F5293 /* View+.swift */; };
-		A6BD338E28C4F2810041B4F4 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD338D28C4F2810041B4F4 /* Node.swift */; };
-		A6BD339028C4F2A40041B4F4 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD338F28C4F2A40041B4F4 /* Connection.swift */; };
-		A6BD339228C4F2BA0041B4F4 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD339128C4F2BA0041B4F4 /* Path.swift */; };
-		A6BD339428C4F2DD0041B4F4 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD339328C4F2DD0041B4F4 /* Graph.swift */; };
-		A6BD339628C4F30F0041B4F4 /* CityGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD339528C4F30F0041B4F4 /* CityGraph.swift */; };
 		A6DD413128BE22D4007430CC /* FlightConnectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD413028BE22D4007430CC /* FlightConnectionDetailView.swift */; };
 		A6DD413228BE25A9007430CC /* TUIKit in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A65EBCAA28BE134D005F5293 /* TUIKit */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A6DD413428BE2E23007430CC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A6DD413328BE2E23007430CC /* README.md */; };
@@ -83,11 +78,6 @@
 		A65EBCAE28BE163C005F5293 /* RequestState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		A65EBCB028BE163C005F5293 /* Publisher+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		A65EBCB128BE163C005F5293 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
-		A6BD338D28C4F2810041B4F4 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		A6BD338F28C4F2A40041B4F4 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		A6BD339128C4F2BA0041B4F4 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		A6BD339328C4F2DD0041B4F4 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		A6BD339528C4F30F0041B4F4 /* CityGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGraph.swift; sourceTree = "<group>"; };
 		A6DD413028BE22D4007430CC /* FlightConnectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightConnectionDetailView.swift; sourceTree = "<group>"; };
 		A6DD413328BE2E23007430CC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ABDCF768B50D6A034FC99B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,24 +165,6 @@
 			name = Project;
 			sourceTree = "<group>";
 		};
-		A62B16B128C20A360094946E /* TUIAlgorithmKit */ = {
-			isa = PBXGroup;
-			children = (
-				A62B16B228C20A570094946E /* Sources */,
-			);
-			path = TUIAlgorithmKit;
-			sourceTree = "<group>";
-		};
-		A62B16B228C20A570094946E /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				A6BD338C28C4F2730041B4F4 /* Models */,
-				A6BD339328C4F2DD0041B4F4 /* Graph.swift */,
-				A6BD339528C4F30F0041B4F4 /* CityGraph.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
 		A65EBCA828BE12F2005F5293 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,16 +197,6 @@
 				A65EBCB128BE163C005F5293 /* View+.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A6BD338C28C4F2730041B4F4 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A6BD338D28C4F2810041B4F4 /* Node.swift */,
-				A6BD338F28C4F2A40041B4F4 /* Connection.swift */,
-				A6BD339128C4F2BA0041B4F4 /* Path.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A6DD412F28BE22BC007430CC /* FlightConnectionDetail */ = {
@@ -295,7 +257,6 @@
 		CF8ED86C2D71F84D1CE08A34 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A62B16B128C20A360094946E /* TUIAlgorithmKit */,
 				B331E4A017B1A910CBD0E8E3 /* Core */,
 				C7336A64692D5DF575B4CCDD /* UI */,
 			);
@@ -437,23 +398,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6BD339228C4F2BA0041B4F4 /* Path.swift in Sources */,
 				A6DD413128BE22D4007430CC /* FlightConnectionDetailView.swift in Sources */,
 				23C38D78E0A7575B1CD81C37 /* Trip_PlannnerApp.swift in Sources */,
 				A65EBCB328BE163C005F5293 /* Publisher+.swift in Sources */,
 				A65EBCB428BE163C005F5293 /* View+.swift in Sources */,
 				ED6939385CEB07743C69E116 /* CityMapView.swift in Sources */,
-				A6BD339028C4F2A40041B4F4 /* Connection.swift in Sources */,
-				A6BD338E28C4F2810041B4F4 /* Node.swift in Sources */,
 				D58795030A66D458C2B4D18D /* ErrorView.swift in Sources */,
 				EC25080054E1F163E3D4CB27 /* FlightConnectionMapView.swift in Sources */,
 				F2E69D7C168B8385A96BA560 /* LoaderView.swift in Sources */,
 				D2C7E28AD0124CC8A9CCB102 /* FlightConnectionsList.swift in Sources */,
 				1B82C93A5974CC7B0DB6B227 /* RootScreenFlowCoordinator.swift in Sources */,
 				CCAEAD6F15C09EFA7026ACCF /* RootScreenView.swift in Sources */,
-				A6BD339628C4F30F0041B4F4 /* CityGraph.swift in Sources */,
 				1DE6D0F7AC1DFD7AB4FB0DDE /* RootScreenViewModel.swift in Sources */,
-				A6BD339428C4F2DD0041B4F4 /* Graph.swift in Sources */,
 				A65EBCB228BE163C005F5293 /* RequestState.swift in Sources */,
 				E37DCAEB5D822360A094999D /* SelectItemScreenView.swift in Sources */,
 				186CBA5FE0929F9498D73452 /* SelectItemViewModel.swift in Sources */,

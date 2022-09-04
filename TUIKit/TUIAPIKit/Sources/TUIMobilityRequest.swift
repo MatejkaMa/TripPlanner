@@ -1,4 +1,4 @@
-import APIService
+import APIKit
 import Foundation
 
 public enum TUIMobilityRequest: Request {

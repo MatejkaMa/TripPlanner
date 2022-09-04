@@ -1,6 +1,6 @@
 import XCTest
 
-@testable import APIService
+@testable import APIKit
 
 final class APIServiceTests: XCTestCase {
 

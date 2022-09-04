@@ -11,7 +11,7 @@ let package = Package(
         .library(
             name: "TUIKit",
             type: .dynamic,
-            targets: ["APIService", "TUIService"]
+            targets: ["APIKit", "TUIAPIKit", "TUIAlgorithmKit"]
         )
     ],
     dependencies: [
@@ -22,33 +22,51 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "APIService",
+            name: "APIKit",
             dependencies: [],
-            path: "APIService",
+            path: "APIKit",
             exclude: ["Tests"],
             sources: ["Sources"]
         ),
-        .testTarget(
-            name: "APIServiceTests",
-            dependencies: ["APIService"],
-            path: "APIService/Tests"
-        ),
         .target(
-            name: "TUIService",
+            name: "TUIAPIKit",
             dependencies: [
-                .target(name: "APIService")
+                .target(name: "APIKit")
             ],
-            path: "TUIService",
+            path: "TUIAPIKit",
             exclude: ["Tests"],
             sources: ["Sources"],
             resources: [
                 .process("Resources")
             ]
         ),
+        .target(
+            name: "TUIAlgorithmKit",
+            dependencies: [
+                .target(name: "TUIAPIKit")
+            ],
+            path: "TUIAlgorithmKit",
+            exclude: ["Tests"],
+            sources: ["Sources"]
+            //            resources: [
+            //                .process("Resources")
+            //            ]
+        ),
+        // Test targets
         .testTarget(
-            name: "TUIServiceTests",
-            dependencies: ["TUIService"],
-            path: "TUIService/Tests"
+            name: "APIKitTests",
+            dependencies: ["APIKit"],
+            path: "APIKit/Tests"
+        ),
+        .testTarget(
+            name: "TUIAPIKitTests",
+            dependencies: ["TUIAPIKit"],
+            path: "TUIAPIKit/Tests"
+        ),
+        .testTarget(
+            name: "TUIAlgorithmKitTests",
+            dependencies: ["TUIAlgorithmKit"],
+            path: "TUIAlgorithmKit/Tests"
         ),
     ]
 )

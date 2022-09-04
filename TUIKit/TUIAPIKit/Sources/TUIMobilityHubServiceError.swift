@@ -1,5 +1,5 @@
 import Foundation
-import APIService
+import APIKit
 import Combine
 
 public enum TUIMobilityHubServiceError: LocalizedError {

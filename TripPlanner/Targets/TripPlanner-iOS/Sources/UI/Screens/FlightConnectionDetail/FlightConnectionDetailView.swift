@@ -1,5 +1,5 @@
 import SwiftUI
-import TUIService
+import TUIAPIKit
 
 struct FlightConnectionDetailView: View {
 

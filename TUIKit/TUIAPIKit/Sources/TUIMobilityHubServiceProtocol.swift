@@ -1,5 +1,5 @@
 import Foundation
-import APIService
+import APIKit
 
 public protocol TUIMobilityHubServiceProtocol: APIServiceProtocol {}
 

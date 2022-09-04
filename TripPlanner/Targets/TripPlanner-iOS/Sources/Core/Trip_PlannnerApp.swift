@@ -1,5 +1,5 @@
 import SwiftUI
-import TUIService
+import TUIAPIKit
 
 @main
 struct Trip_PlannnerApp: App {
