@@ -18,4 +18,13 @@ public struct City: Identifiable, Hashable, Decodable {
         self.name = name
         self.coordinate = coordinate
     }
+
+    public var description: String {
+        // NOTE: The city can have more airports so here would be the name of the airport better.
+        return """
+             \(Float(coordinate.lat))
+             \(Float(coordinate.long))
+            """
+    }
 }
+

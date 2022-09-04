@@ -37,7 +37,15 @@ final class RootScreenViewModel: RootScreenViewModelProtocol, RootScreenFlowStat
 
     @Published var connectionsState: RequestState<[FlightConnection]> = .notAsked
     @Published var selectedDepartureCity: City?
-    @Published var selectedDestinationCity: City?
+    @Published var selectedDestinationCity: City? {
+        didSet {
+            guard let source = selectedDepartureCity,
+                  let destination = selectedDestinationCity else {
+                      return
+                  }
+            printCheapestRoute(source, destination: destination)
+        }
+    }
 
     var cities: [City] {
         guard case .success(let connections) = connectionsState else { return [] }
@@ -73,6 +81,22 @@ final class RootScreenViewModel: RootScreenViewModelProtocol, RootScreenFlowStat
             .store(in: &cancelables)
     }
 
+    func printCheapestRoute(_ source: City, destination: City) {
+        let graph = CityGraph(connections: connections)
+        if let path = graph.cheapestPath(from: source, to: destination) {
+            let citiesNames = path.array.reversed()
+                .compactMap { node in
+                    return cities.first { city in
+                        return city.id == node.id
+                    }
+                }
+                .map { $0.name}
+            print("🏁 Quickest path: \(citiesNames), for: \(path.cumulativeWeight)\n connections: \(path.connections.map { $0.weight })")
+        } else {
+            print("💥 No path between \(source.name) & \(destination.name)")
+        }
+    }
+
     // MARK: - Flow state -
 
     @Published var route: RootScreenRoute?
@@ -82,14 +106,6 @@ final class RootScreenViewModel: RootScreenViewModelProtocol, RootScreenFlowStat
 extension City: ListItem {
     var title: String {
         return name
-    }
-
-    var description: String {
-        // NOTE: The city can have more airports so here would be the name of the airport better.
-        return """
-             \(Float(coordinate.lat))
-             \(Float(coordinate.long))
-            """
     }
 }
 
