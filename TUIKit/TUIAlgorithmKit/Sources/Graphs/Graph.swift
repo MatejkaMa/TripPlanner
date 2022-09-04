@@ -1,8 +1,8 @@
 import Foundation
 
-public class Graph<Item: Identifiable & Hashable> where Item.ID == Int {
+public class Graph<Node: Nodalbe> {
 
-    public typealias Connections = [Item: [(to: Item, weight: Int)]]
+    public typealias Connections = [Node.Item: [(to: Node.Item, weight: Int)]]
 
     public let nodes: [Node]
 
@@ -11,25 +11,25 @@ public class Graph<Item: Identifiable & Hashable> where Item.ID == Int {
             connections.flatMap { from, connections in
                 [from] + connections.map { $0.to }
             }
-        ).map { Node(id: $0.id) }
+        ).map { Node($0) }
 
         connections
             .forEach { fromItem, connections in
                 connections.forEach { connection in
                     let toItem = connection.to
                     let weight = connection.weight
-                    Graph<Item>.node(for: fromItem, in: nodes).connections.append(.init(to: Graph<Item>.node(for: toItem, in: nodes), weight: weight))
+                    Graph<Node>.node(for: fromItem, in: nodes).connections.append(.init(to: Graph<Node>.node(for: toItem, in: nodes), weight: weight))
                 }
             }
         self.nodes = nodes
     }
 
-    public func node(for item: Item) -> Node {
+    public func node(for item: Node.Item) -> Node {
         Self.node(for: item, in: nodes)
     }
 
-    private static func node(for item: Item, in nodes: [Node]) -> Node {
-        nodes.first(where: { $0.id == item.id }) ?? Node(id: item.id)
+    private static func node(for item: Node.Item, in nodes: [Node]) -> Node {
+        nodes.first(where: { $0.id == item.id }) ?? Node(item)
     }
 
 }
@@ -38,11 +38,11 @@ extension Graph {
 
     // NOTE: Inspired https://www.fivestars.blog/articles/dijkstra-algorithm-swift/
     /// Used Dijkstra’s algorithm
-    public func shortestPath(from fromItem: Item, to toItem: Item) -> Path? {
+    public func shortestPath(from fromItem: Node.Item, to toItem: Node.Item) -> Path<Node>? {
 
         let source = node(for: fromItem)
         let destination = node(for: toItem)
-        var frontier: [Path] = [] {
+        var frontier: [Path<Node>] = [] {
             didSet { frontier.sort { return $0.cumulativeWeight < $1.cumulativeWeight } } // the frontier has to be always ordered
         }
 

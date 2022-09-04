@@ -86,12 +86,7 @@ final class RootScreenViewModel: RootScreenViewModelProtocol, RootScreenFlowStat
         let graph = CityGraph(connections: connections)
         if let path = graph.cheapestPath(from: source, to: destination) {
             let citiesNames = path.array.reversed()
-                .compactMap { node in
-                    return cities.first { city in
-                        return city.id == node.id
-                    }
-                }
-                .map { $0.name}
+                .map { $0.item.name }
             print("🏁 Quickest path: \(citiesNames), for: \(path.cumulativeWeight)\n connections: \(path.connections.map { $0.weight })")
         } else {
             print("💥 No path between \(source.name) & \(destination.name)")

@@ -1,12 +1,12 @@
 import Foundation
 
-public class Path {
+public class Path<Node: Nodalbe> {
     public let cumulativeWeight: Int
     public let node: Node
     public let previousPath: Path?
-    private let connection: Connection?
+    private let connection: Connection<Node>?
 
-    public init(to node: Node, via connection: Connection? = nil, previousPath path: Path? = nil) {
+    public init(to node: Node, via connection: Connection<Node>? = nil, previousPath path: Path<Node>? = nil) {
         if
             let previousPath = path,
             let viaConnection = connection {
@@ -33,8 +33,8 @@ extension Path {
         return array
     }
 
-    public var connections: [Connection] {
-        var array: [Connection?] = [connection]
+    public var connections: [Connection<Node>] {
+        var array: [Connection<Node>?] = [connection]
 
         var iterativePath = self
         while let path = iterativePath.previousPath {

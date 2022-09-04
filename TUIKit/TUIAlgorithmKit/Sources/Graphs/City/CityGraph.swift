@@ -1,7 +1,7 @@
 import Foundation
 import TUIAPIKit
 
-public class CityGraph: Graph<City> {
+public class CityGraph: Graph<CityNode> {
 
     public init(connections: [FlightConnection]) {
         let connections = Dictionary(grouping: connections) { connection -> City in
@@ -12,7 +12,7 @@ public class CityGraph: Graph<City> {
         super.init(connections: connections)
     }
 
-    public func cheapestPath(from source: City, to destination: City) -> Path? {
+    public func cheapestPath(from source: City, to destination: City) -> Path<CityNode>? {
         shortestPath(from: source, to: destination)
     }
 
