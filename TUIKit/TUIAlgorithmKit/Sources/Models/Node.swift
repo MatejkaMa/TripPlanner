@@ -1,27 +1,27 @@
 import Foundation
 
 public protocol Nodalbe: AnyObject, Identifiable, Hashable {
-    associatedtype Item: Identifiable & Hashable
-    var visited: Bool { get set }
-    var connections: [Connection<Self>] { get set }
+  associatedtype Item: Identifiable & Hashable
+  var visited: Bool { get set }
+  var connections: [Connection<Self>] { get set }
 
-    var item: Item { get }
+  var item: Item { get }
 
-    init(_ item: Item)
+  init(_ item: Item)
 }
 
 extension Nodalbe {
-    public var id: Item.ID {
-        return item.id
-    }
+  public var id: Item.ID {
+    return item.id
+  }
 
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id
-    }
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    lhs.id == rhs.id
+  }
 }
 
 //public class Node: Identifiable, Hashable {
