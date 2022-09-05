@@ -9,7 +9,7 @@ protocol RootScreenFlowStateProtocol: ObservableObject {
 enum RootScreenRoute: Identifiable {
     case selectDepartureCity(selected: Binding<City?>, cities: [City])
     case selectDestinationCity(selected: Binding<City?>, cities: [City])
-    case connection(_ connection: FlightConnection)
+    case connection(_ connection: CityConnection)
 
     var modal: Self? {
         return self  // All routes are modals
@@ -58,7 +58,7 @@ struct RootScreenFlowCoordinator<
                 viewModel: .init(title: "Destination", selectedItem: selected, items: cities)
             )
         case .connection(let connection):
-            FlightConnectionDetailView(connection: connection)
+            CityConnectionDetailView(connection: connection)
         }
     }
 }

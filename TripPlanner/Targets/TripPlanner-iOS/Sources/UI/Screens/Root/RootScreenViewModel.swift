@@ -6,9 +6,10 @@ import TUIAlgorithmKit
 protocol RootScreenViewModelProtocol: ObservableObject {
 
     var connectionsState: RequestState<[FlightConnection]> { get }
-    var sortedConnections: [FlightConnection] { get }
     var selectedDepartureCity: City? { get set }
     var selectedDestinationCity: City? { get set }
+    var selectedDepartureCityPublisher: AnyPublisher<City?, Never> { get }
+    var selectDestinationCityPublisher: AnyPublisher<City?, Never> { get }
 
     var cities: [City] { get }
 
@@ -31,22 +32,17 @@ final class RootScreenViewModel: RootScreenViewModelProtocol, RootScreenFlowStat
 
     // MARK: - Public props
 
-    /// Cheapest
-    var sortedConnections: [FlightConnection] {
-        connections.sorted(by: { $0.price < $1.price })
+    var selectedDepartureCityPublisher: AnyPublisher<City?, Never> {
+        $selectedDepartureCity.eraseToAnyPublisher()
+    }
+
+    var selectDestinationCityPublisher: AnyPublisher<City?, Never> {
+        $selectedDestinationCity.eraseToAnyPublisher()
     }
 
     @Published var connectionsState: RequestState<[FlightConnection]> = .notAsked
     @Published var selectedDepartureCity: City?
-    @Published var selectedDestinationCity: City? {
-        didSet {
-            guard let source = selectedDepartureCity,
-                  let destination = selectedDestinationCity else {
-                      return
-                  }
-            printCheapestRoute(source, destination: destination)
-        }
-    }
+    @Published var selectedDestinationCity: City?
 
     var cities: [City] {
         guard case .success(let connections) = connectionsState else { return [] }
@@ -80,17 +76,6 @@ final class RootScreenViewModel: RootScreenViewModelProtocol, RootScreenFlowStat
                 }
             }
             .store(in: &cancelables)
-    }
-
-    func printCheapestRoute(_ source: City, destination: City) {
-        let graph = CityGraph(connections: connections)
-        if let path = graph.cheapestPath(from: source, to: destination) {
-            let citiesNames = path.array.reversed()
-                .map { $0.item.name }
-            print("🏁 Quickest path: \(citiesNames), for: \(path.cumulativeWeight)\n connections: \(path.connections.map { $0.weight })")
-        } else {
-            print("💥 No path between \(source.name) & \(destination.name)")
-        }
     }
 
     // MARK: - Flow state -

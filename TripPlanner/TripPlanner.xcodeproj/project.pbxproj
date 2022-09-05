@@ -17,7 +17,8 @@
 		A65EBCB228BE163C005F5293 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EBCAE28BE163C005F5293 /* RequestState.swift */; };
 		A65EBCB328BE163C005F5293 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EBCB028BE163C005F5293 /* Publisher+.swift */; };
 		A65EBCB428BE163C005F5293 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65EBCB128BE163C005F5293 /* View+.swift */; };
-		A6DD413128BE22D4007430CC /* FlightConnectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD413028BE22D4007430CC /* FlightConnectionDetailView.swift */; };
+		A6A7773928C5D74C00DAADC5 /* FlightConnectionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A7773828C5D74C00DAADC5 /* FlightConnectionsListViewModel.swift */; };
+		A6DD413128BE22D4007430CC /* CityConnectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DD413028BE22D4007430CC /* CityConnectionDetailView.swift */; };
 		A6DD413228BE25A9007430CC /* TUIKit in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A65EBCAA28BE134D005F5293 /* TUIKit */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A6DD413428BE2E23007430CC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A6DD413328BE2E23007430CC /* README.md */; };
 		C0FB5559185AA237A2421B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABDCF768B50D6A034FC99B3B /* Assets.xcassets */; };
@@ -25,7 +26,7 @@
 		D2C7E28AD0124CC8A9CCB102 /* FlightConnectionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9701B0B9DE67F83F6329CFDD /* FlightConnectionsList.swift */; };
 		D58795030A66D458C2B4D18D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC50CD6645DB63959C549AA /* ErrorView.swift */; };
 		E37DCAEB5D822360A094999D /* SelectItemScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D00FE149A5DEA0D11A6A7 /* SelectItemScreenView.swift */; };
-		EC25080054E1F163E3D4CB27 /* FlightConnectionMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F48AC69A1FE43649A4196 /* FlightConnectionMapView.swift */; };
+		EC25080054E1F163E3D4CB27 /* CityConnectionMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14F48AC69A1FE43649A4196 /* CityConnectionMapView.swift */; };
 		ED6939385CEB07743C69E116 /* CityMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F796875F547A675099B50A8F /* CityMapView.swift */; };
 		F2E69D7C168B8385A96BA560 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6DFB8FA2DCEC82021485B3 /* LoaderView.swift */; };
 /* End PBXBuildFile section */
@@ -78,10 +79,11 @@
 		A65EBCAE28BE163C005F5293 /* RequestState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		A65EBCB028BE163C005F5293 /* Publisher+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		A65EBCB128BE163C005F5293 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
-		A6DD413028BE22D4007430CC /* FlightConnectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightConnectionDetailView.swift; sourceTree = "<group>"; };
+		A6A7773828C5D74C00DAADC5 /* FlightConnectionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightConnectionsListViewModel.swift; sourceTree = "<group>"; };
+		A6DD413028BE22D4007430CC /* CityConnectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityConnectionDetailView.swift; sourceTree = "<group>"; };
 		A6DD413328BE2E23007430CC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ABDCF768B50D6A034FC99B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C14F48AC69A1FE43649A4196 /* FlightConnectionMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightConnectionMapView.swift; sourceTree = "<group>"; };
+		C14F48AC69A1FE43649A4196 /* CityConnectionMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityConnectionMapView.swift; sourceTree = "<group>"; };
 		CFCAD505D81A4A068E9E2D70 /* Trip_PlannnerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip_PlannnerApp.swift; sourceTree = "<group>"; };
 		D00CB36A079727512A6DF17C /* SelectItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemViewModel.swift; sourceTree = "<group>"; };
 		D0D085DEEDE31D7806ED6641 /* TripPlanner_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlanner_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,7 +125,7 @@
 		39DCF597D71168B10B65F984 /* Molecules */ = {
 			isa = PBXGroup;
 			children = (
-				9701B0B9DE67F83F6329CFDD /* FlightConnectionsList.swift */,
+				A6A7773A28C5E87A00DAADC5 /* FlightConnectionsList */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -140,7 +142,7 @@
 			children = (
 				C3F297701C37D613650C3765 /* Root */,
 				B196DBB89AEF6A505B261812 /* SelectCity */,
-				A6DD412F28BE22BC007430CC /* FlightConnectionDetail */,
+				A6DD412F28BE22BC007430CC /* CityConnectionDetail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -150,7 +152,7 @@
 			children = (
 				F796875F547A675099B50A8F /* CityMapView.swift */,
 				FAC50CD6645DB63959C549AA /* ErrorView.swift */,
-				C14F48AC69A1FE43649A4196 /* FlightConnectionMapView.swift */,
+				C14F48AC69A1FE43649A4196 /* CityConnectionMapView.swift */,
 				5A6DFB8FA2DCEC82021485B3 /* LoaderView.swift */,
 			);
 			path = Atoms;
@@ -199,12 +201,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A6DD412F28BE22BC007430CC /* FlightConnectionDetail */ = {
+		A6A7773A28C5E87A00DAADC5 /* FlightConnectionsList */ = {
 			isa = PBXGroup;
 			children = (
-				A6DD413028BE22D4007430CC /* FlightConnectionDetailView.swift */,
+				A6A7773828C5D74C00DAADC5 /* FlightConnectionsListViewModel.swift */,
+				9701B0B9DE67F83F6329CFDD /* FlightConnectionsList.swift */,
 			);
-			path = FlightConnectionDetail;
+			path = FlightConnectionsList;
+			sourceTree = "<group>";
+		};
+		A6DD412F28BE22BC007430CC /* CityConnectionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A6DD413028BE22D4007430CC /* CityConnectionDetailView.swift */,
+			);
+			path = CityConnectionDetail;
 			sourceTree = "<group>";
 		};
 		B196DBB89AEF6A505B261812 /* SelectCity */ = {
@@ -398,13 +409,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6DD413128BE22D4007430CC /* FlightConnectionDetailView.swift in Sources */,
+				A6DD413128BE22D4007430CC /* CityConnectionDetailView.swift in Sources */,
 				23C38D78E0A7575B1CD81C37 /* Trip_PlannnerApp.swift in Sources */,
 				A65EBCB328BE163C005F5293 /* Publisher+.swift in Sources */,
 				A65EBCB428BE163C005F5293 /* View+.swift in Sources */,
 				ED6939385CEB07743C69E116 /* CityMapView.swift in Sources */,
 				D58795030A66D458C2B4D18D /* ErrorView.swift in Sources */,
-				EC25080054E1F163E3D4CB27 /* FlightConnectionMapView.swift in Sources */,
+				A6A7773928C5D74C00DAADC5 /* FlightConnectionsListViewModel.swift in Sources */,
+				EC25080054E1F163E3D4CB27 /* CityConnectionMapView.swift in Sources */,
 				F2E69D7C168B8385A96BA560 /* LoaderView.swift in Sources */,
 				D2C7E28AD0124CC8A9CCB102 /* FlightConnectionsList.swift in Sources */,
 				1B82C93A5974CC7B0DB6B227 /* RootScreenFlowCoordinator.swift in Sources */,

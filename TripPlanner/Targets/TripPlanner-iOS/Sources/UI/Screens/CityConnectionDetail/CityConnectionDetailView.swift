@@ -1,9 +1,9 @@
 import SwiftUI
 import TUIAPIKit
 
-struct FlightConnectionDetailView: View {
+struct CityConnectionDetailView: View {
 
-    let connection: FlightConnection
+    let connection: CityConnection
 
     var body: some View {
         VStack {
@@ -25,7 +25,7 @@ struct FlightConnectionDetailView: View {
             .padding(.horizontal, 30)
             .padding(.vertical)
 
-            FlightConnectionMapView(connection: connection)
+            CityConnectionMapView(connection: connection)
         }
     }
 
@@ -40,9 +40,9 @@ struct FlightConnectionDetailView: View {
 }
 
 #if DEBUG
-struct FlightConnectionDetailView_Previews: PreviewProvider {
+struct CityConnectionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightConnectionDetailView(connection: .mock)
+        CityConnectionDetailView(connection: .mock)
     }
 }
 #endif

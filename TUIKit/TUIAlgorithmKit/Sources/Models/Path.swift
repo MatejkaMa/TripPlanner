@@ -21,26 +21,22 @@ public class Path<Node: Nodalbe> {
 }
 
 extension Path {
-    public var array: [Node] {
-        var array: [Node] = [self.node]
 
+    public var paths: [Path<Node>] {
+        var array: [Path<Node>] = [self]
         var iterativePath = self
         while let path = iterativePath.previousPath {
-            array.append(path.node)
+            array.append(path)
             iterativePath = path
         }
-
         return array
     }
 
-    public var connections: [Connection<Node>] {
-        var array: [Connection<Node>?] = [connection]
+    public var array: [Node] {
+        paths.map { $0.node }
+    }
 
-        var iterativePath = self
-        while let path = iterativePath.previousPath {
-            array.append(path.connection)
-            iterativePath = path
-        }
-        return array.compactMap { $0 }
+    public var connections: [Connection<Node>] {
+        paths.compactMap { $0.connection }
     }
 }

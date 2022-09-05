@@ -30,15 +30,13 @@ struct RootScreenView<
                 requestState: viewModel.connectionsState,
                 onNotAsked: { viewModel.fetchFlightConnections() }
             ) { connections in
-                FlightConnectionsList(
-                    connections: viewModel.sortedConnections,
-                    departure: viewModel.selectedDepartureCity,
-                    destination: viewModel.selectedDestinationCity,
-                    onSelect: { connection in
-                        viewModel.route = .connection(connection)
-                    },
-                    header: connectionCitiesSelectionSection
-                )
+                if connections.isEmpty {
+                    Text("No flight connections")
+                } else {
+                    FlightConnectionsList(viewModel: .init(connections, from: viewModel.selectedDepartureCityPublisher, to: viewModel.selectDestinationCityPublisher, onSelect: { connection in
+                            viewModel.route = .connection(connection)
+                    }), header: connectionCitiesSelectionSection)
+                }
             }
             .navigationTitle("Trip")
         }

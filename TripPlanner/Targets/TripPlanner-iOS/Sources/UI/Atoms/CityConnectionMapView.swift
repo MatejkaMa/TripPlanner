@@ -2,9 +2,9 @@ import MapKit
 import SwiftUI
 import TUIAPIKit
 
-struct FlightConnectionMapView: View {
+struct CityConnectionMapView: View {
 
-    let connection: FlightConnection
+    let connection: CityConnection
 
     private var annotationItems: [City] {
         [
@@ -14,7 +14,7 @@ struct FlightConnectionMapView: View {
     }
 
     private var mapRect: MKMapRect {
-        return [connection.coordinates.from, connection.coordinates.to]
+        return [connection.from.coordinate, connection.to.coordinate]
             .map {
                 MKMapRect(
                     origin: .init(.init(latitude: $0.lat, longitude: $0.long)),
@@ -40,9 +40,9 @@ struct FlightConnectionMapView: View {
 }
 
 #if DEBUG
-    struct FlightConnectionMapView_Previews: PreviewProvider {
+    struct CityConnectionMapView_Previews: PreviewProvider {
         static var previews: some View {
-            FlightConnectionMapView(connection: .mock)
+            CityConnectionMapView(connection: .mock)
         }
     }
 #endif
