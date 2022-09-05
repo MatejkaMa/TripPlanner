@@ -1,8 +1,6 @@
 import XCTest
 
-@testable import TripPlanner_iOS
-
-class Trip_PlannnerTests: XCTestCase {
+class TUIServiceTests: XCTestCase {
 
   override func setUpWithError() throws {
     // Put setup code here. This method is called before the invocation of each test method in the class.

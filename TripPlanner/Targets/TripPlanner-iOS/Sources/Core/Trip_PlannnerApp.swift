@@ -1,18 +1,18 @@
 import SwiftUI
-import TUIService
+import TUIAPIKit
 
 @main
 struct Trip_PlannnerApp: App {
 
-    let tuiService: TUIMobilityHubServiceProtocol
+  let tuiService: TUIMobilityHubServiceProtocol
 
-    init() {
-        self.tuiService = TUIMobilityHubService()
-    }
+  init() {
+    self.tuiService = TUIMobilityHubService()
+  }
 
-    var body: some Scene {
-        WindowGroup {
-            RootScreenView<RootScreenViewModel>(viewModel: .init(tuiService: tuiService))
-        }
+  var body: some Scene {
+    WindowGroup {
+      RootScreenView<RootScreenViewModel>(viewModel: .init(tuiService: tuiService))
     }
+  }
 }
