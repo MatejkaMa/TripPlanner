@@ -20,14 +20,24 @@
 - Modular architecture
 - Atomic design (https://atomicdesign.bradfrost.com)
 
-## Develop targets 
+## Modules
 
-- TripPlanner-iOS - iOS target 
-- TUIKit - framework dynamic library
+### TUIKit (Package)
+-  Targets: 
+    - APIKit
+        - Protocoled a basic REST API implementation
+        - Implemented a basic APIService 
+        - Implemented a basic MockAPIService (returns sample data)
+    - TUIAPIKit
+        - It contains the implementation of the service to communicate with the TUI Hub (TUIMobilityHubService) and the mocked variant (MockTUIMobilityHubService) 
+    - TUIAlgorithmKit
+        - It contains the algorithm to find the shortest path  
 
-## Room to improvement
-
-- Some sorting, filtering data operations are done on the main thread which could lead to some performance issues if there would be more data, but for this data samples it is not neededdue to time - Due to time constraints, I decided to skip the tests. I've honestly never really practiced the TDD method and it would slow me down a bit
+### TripPlanner
+- /Shared
+    - shared sources/resources between eventual multiple deployment targets
+- /Targets/TripPlanner-iOS
+    - sources/resources for the iOS target
 
 
 

@@ -39,10 +39,9 @@ struct CityConnectionDetailView: View {
     }
 }
 
-#if DEBUG
-    struct CityConnectionDetailView_Previews: PreviewProvider {
-        static var previews: some View {
-            CityConnectionDetailView(connection: .mock)
-        }
+struct CityConnectionDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        CityConnectionDetailView(connection: .mock)
     }
-#endif
+}
+

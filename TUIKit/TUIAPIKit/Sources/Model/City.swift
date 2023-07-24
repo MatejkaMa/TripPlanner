@@ -27,3 +27,9 @@ public struct City: Identifiable, Hashable, Decodable {
             """
     }
 }
+
+extension City {
+    public static var mock: City {
+        return .init(name: "London", coordinate: .init(lat: 51.5285582, long: -0.241681))
+    }
+}

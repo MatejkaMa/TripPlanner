@@ -1,7 +1,7 @@
 import SwiftUI
 import TUIAPIKit
 
-struct SelectItemScreenView<Item: ListItem>: View {
+struct SelectItemView<Item: ListItem>: View {
 
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
@@ -68,14 +68,7 @@ struct SelectItemScreenView<Item: ListItem>: View {
     }
 }
 
-#if DEBUG
-    struct SelectCityScreenView_Previews: PreviewProvider {
-
-        static var previews: some View {
-            SelectItemScreenView<MockListItem>(viewModel: .preview)
-        }
-    }
-
+struct SelectCityScreenView_Previews: PreviewProvider {
     struct MockListItem: ListItem {
         let title: String
         let description: String
@@ -83,5 +76,19 @@ struct SelectItemScreenView<Item: ListItem>: View {
         var id: String {
             return title
         }
+
+        static var mockItems: [MockListItem] {
+            (0...10).map { MockListItem(title: "\($0)", description: "Description") }
+        }
     }
-#endif
+
+    static var previews: some View {
+        SelectItemView<MockListItem>(viewModel:
+                .init(
+                    title: "Title",
+                    selectedItem: .constant(nil),
+                    items: MockListItem.mockItems
+                )
+        )
+    }
+}

@@ -15,16 +15,13 @@ open class APIService<R: Request>: APIServiceProtocol {
     required public init() {}
 }
 
-#if DEBUG
-
-    open class MockAPIService<R: Request>: APIServiceProtocol {
-        public func request(_ request: Request) -> Single<Data, APIServiceError> {
-            Just(request.sampleData)
-                .setFailureType(to: APIServiceError.self)
-                .asSingle()
-        }
-
-        required public init() {}
+open class MockAPIService<R: Request>: APIServiceProtocol {
+    public func request(_ request: Request) -> Single<Data, APIServiceError> {
+        Just(request.sampleData)
+            .setFailureType(to: APIServiceError.self)
+            .asSingle()
     }
 
-#endif
+    required public init() {}
+}
+

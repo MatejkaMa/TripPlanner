@@ -7,17 +7,11 @@ struct RootScreenView<
     @StateObject var viewModel: ViewModel
 
     private var departureText: String {
-        guard let departure = viewModel.selectedDepartureCity else {
-            return "Select departure"
-        }
-        return departure.title
+        viewModel.selectedDepartureCity?.title ?? "Select departure"
     }
 
     private var destinationText: String {
-        guard let destination = viewModel.selectedDestinationCity else {
-            return "Select destination"
-        }
-        return destination.title
+        viewModel.selectedDestinationCity?.title ?? "Select destination"
     }
 
     var body: some View {
@@ -119,10 +113,10 @@ struct RootScreenView<
     }
 }
 
-#if DEBUG
-    struct RootScreenView_Previews: PreviewProvider {
-        static var previews: some View {
-            RootScreenView<RootScreenViewModel>(viewModel: .preview)
-        }
+
+struct RootScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        RootScreenView<RootScreenViewModel>(viewModel: .preview)
     }
-#endif
+}
+

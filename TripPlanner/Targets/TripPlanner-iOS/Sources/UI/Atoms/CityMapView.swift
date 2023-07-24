@@ -15,12 +15,7 @@ struct CityMapView: View {
 
     var body: some View {
         Map(
-            coordinateRegion: .constant(
-                .init(
-                    center: .init(latitude: city.coordinate.lat, longitude: city.coordinate.long),
-                    span: .init(latitudeDelta: 10, longitudeDelta: 10)
-                )
-            ),
+            coordinateRegion: .constant(region),
             annotationItems: [city]
         ) { _ in
             MapMarker(
@@ -31,10 +26,8 @@ struct CityMapView: View {
     }
 }
 
-#if DEBUG
-    struct CityMapView_Previews: PreviewProvider {
-        static var previews: some View {
-            CityMapView(city: .init(name: "London", coordinate: .init(lat: 10, long: 10)))
-        }
+struct CityMapView_Previews: PreviewProvider {
+    static var previews: some View {
+        CityMapView(city: .mock)
     }
-#endif
+}

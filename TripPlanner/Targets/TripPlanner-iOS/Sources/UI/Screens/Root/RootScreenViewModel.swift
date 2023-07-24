@@ -52,13 +52,6 @@ final class RootScreenViewModel: RootScreenViewModelProtocol, RootScreenFlowStat
         return Array(uniqueCities)
     }
 
-    // MARK: - Private props
-
-    private var connections: [FlightConnection] {
-        guard case .success(let connections) = connectionsState else { return [] }
-        return connections
-    }
-
     // MARK: - Public methods
 
     func fetchFlightConnections() {
@@ -90,12 +83,10 @@ extension City: ListItem {
     }
 }
 
-#if DEBUG
-
-    extension RootScreenViewModel {
-        static var preview: RootScreenViewModel {
-            return .init(tuiService: MockTUIMobilityHubService())
-        }
+extension RootScreenViewModel {
+    static var preview: RootScreenViewModel {
+        return .init(tuiService: MockTUIMobilityHubService())
     }
+}
 
-#endif
+

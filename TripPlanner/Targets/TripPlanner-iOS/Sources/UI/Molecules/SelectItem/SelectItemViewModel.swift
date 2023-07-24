@@ -40,17 +40,3 @@ final class SelectItemViewModel<Item: ListItem>: ObservableObject {
         self.items = sortedItems
     }
 }
-
-#if DEBUG
-
-    extension SelectItemViewModel {
-
-        static var mockItems: [MockListItem] {
-            (0...10).map { MockListItem(title: "\($0)", description: "Description") }
-        }
-
-        static var preview: SelectItemViewModel<MockListItem> {
-            .init(title: "Title", selectedItem: .constant(nil), items: mockItems)
-        }
-    }
-#endif

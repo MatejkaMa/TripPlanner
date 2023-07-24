@@ -44,24 +44,21 @@ public struct ErrorView: View {
 
 // MARK: Preview
 
-#if DEBUG
-    struct ErrorView_Previews: PreviewProvider {
+struct ErrorView_Previews: PreviewProvider {
 
-        enum ExampleError: LocalizedError {
-            case connectionProblem
+    enum ExampleError: LocalizedError {
+        case connectionProblem
 
-            var errorDescription: String? {
-                switch self {
-                case .connectionProblem:
-                    return "Connection problem. Please check your internet connection."
-                }
+        var errorDescription: String? {
+            switch self {
+            case .connectionProblem:
+                return "Connection problem. Please check your internet connection."
             }
-        }
-
-        static var previews: some View {
-            ErrorView(error: ExampleError.connectionProblem, action: {})
-                .previewLayout(.fixed(width: 300, height: 300))
         }
     }
 
-#endif
+    static var previews: some View {
+        ErrorView(error: ExampleError.connectionProblem, action: {})
+            .previewLayout(.fixed(width: 300, height: 300))
+    }
+}

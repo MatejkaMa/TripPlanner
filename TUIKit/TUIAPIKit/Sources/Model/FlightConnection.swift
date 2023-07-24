@@ -93,29 +93,27 @@ extension FlightConnection {
     }
 }
 
-#if DEBUG
-
-    extension FlightConnection {
-        public static var mock: FlightConnection {
-            mock(index: 1)
-        }
-
-        public static func mock(index: Int) -> FlightConnection {
-            let dIndex = Double(index)
-            let c1: Coordinate = .init(lat: dIndex, long: dIndex)
-            let c2: Coordinate = .init(lat: dIndex + 5, long: dIndex + 5)
-            return .init(
-                from: .init(name: "City \(index)", coordinate: c1),
-                to: .init(name: "City \(index)", coordinate: c2),
-                coordinates: .init(from: c1, to: c2),
-                price: 100
-            )
-        }
+extension FlightConnection {
+    public static var mock: FlightConnection {
+        mock(index: 1)
     }
 
-    extension Array where Element == FlightConnection {
-        public static var mock: [FlightConnection] {
-            return (0...10).map { FlightConnection.mock(index: $0) }
-        }
+    public static func mock(index: Int) -> FlightConnection {
+        let dIndex = Double(index)
+        let c1: Coordinate = .init(lat: dIndex, long: dIndex)
+        let c2: Coordinate = .init(lat: dIndex + 5, long: dIndex + 5)
+        return .init(
+            from: .init(name: "City \(index)", coordinate: c1),
+            to: .init(name: "City \(index)", coordinate: c2),
+            coordinates: .init(from: c1, to: c2),
+            price: 100
+        )
     }
-#endif
+}
+
+extension Array where Element == FlightConnection {
+    public static var mock: [FlightConnection] {
+        return (0...10).map { FlightConnection.mock(index: $0) }
+    }
+}
+

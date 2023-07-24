@@ -50,11 +50,11 @@ struct RootScreenFlowCoordinator<
     func routeContent(_ route: RootScreenRoute) -> some View {
         switch route {
         case .selectDepartureCity(let selected, let cities):
-            SelectItemScreenView(
+            SelectItemView(
                 viewModel: .init(title: "Departure", selectedItem: selected, items: cities)
             )
         case .selectDestinationCity(let selected, let cities):
-            SelectItemScreenView(
+            SelectItemView(
                 viewModel: .init(title: "Destination", selectedItem: selected, items: cities)
             )
         case .connection(let connection):
