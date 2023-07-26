@@ -18,6 +18,11 @@ struct CityConnection: Identifiable, Hashable {
     var id: Int {
         hashValue
     }
+
+    var transfers: Int {
+        guard let children else { return 0 }
+        return max(0, children.count - 1)
+    }
 }
 
 extension CityConnection {

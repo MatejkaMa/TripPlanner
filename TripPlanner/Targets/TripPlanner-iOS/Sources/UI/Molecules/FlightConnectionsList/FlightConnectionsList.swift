@@ -35,13 +35,17 @@ struct FlightConnectionsList<Header: View>: View {
         .animation(.default, value: viewModel.cityConnections)
     }
 
+    @ViewBuilder
     private func connectionCell(_ connection: CityConnection) -> some View {
-        Button {
-            viewModel.onSelect(connection)
-        } label: {
+        if connection.transfers > 0 {
             connectionCellLabel(connection)
+        } else {
+            Button {
+                viewModel.onSelect(connection)
+            } label: {
+                connectionCellLabel(connection)
+            }
         }
-
     }
 
     private func connectionCellLabel(_ connection: CityConnection) -> some View {
@@ -53,6 +57,17 @@ struct FlightConnectionsList<Header: View>: View {
                     .font(.caption)
             }
             Spacer()
+            if connection.transfers > 0 {
+                Text("\(connection.transfers) transfers")
+                    .font(.headline)
+                    .fontWeight(.medium)
+                    .foregroundColor(.white)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 8)
+                    .background(Color.blue.opacity(0.5))
+                    .cornerRadius(8)
+
+            }
             Text("\(connection.price) 💵")
                 .font(.headline)
                 .fontWeight(.medium)

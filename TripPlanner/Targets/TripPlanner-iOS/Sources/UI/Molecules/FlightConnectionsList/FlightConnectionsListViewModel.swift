@@ -27,6 +27,7 @@ final class FlightConnectionsListViewModel: ObservableObject {
         self.fromPublisher = from
         self.toPublisher = to
         self.onSelect = onSelect
+        
         setupSubscriptions()
     }
 

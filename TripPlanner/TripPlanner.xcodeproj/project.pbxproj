@@ -127,7 +127,6 @@
 		39DCF597D71168B10B65F984 /* Molecules */ = {
 			isa = PBXGroup;
 			children = (
-				B196DBB89AEF6A505B261812 /* SelectItem */,
 				A6A7773A28C5E87A00DAADC5 /* FlightConnectionsList */,
 			);
 			path = Molecules;
@@ -144,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C3F297701C37D613650C3765 /* Root */,
+				B196DBB89AEF6A505B261812 /* SelectItem */,
 				A6DD412F28BE22BC007430CC /* CityConnectionDetail */,
 			);
 			path = Screens;

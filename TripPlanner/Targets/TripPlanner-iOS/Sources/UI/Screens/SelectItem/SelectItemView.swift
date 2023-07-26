@@ -17,8 +17,7 @@ struct SelectItemView<Item: ListItem>: View {
                     prompt: "Find city"
                 ) {
                     ForEach(viewModel.filteredItems) { item in
-                        Text(item.title)
-                            .searchCompletion(item.title)
+                        rowContent(item)
                     }
                 }
                 .navigationViewStyle(.stack)
